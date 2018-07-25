@@ -3,7 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def CPlot(corr_mat, axis_labs, cmap = "PuBu", pad = 0.05, rad = 270):
+def CPlot(corr_mat, axis_labs, cmap = "PuBu",
+          pad = 0.05, rad = 250,
+          xlab = 'x', ylab = 'y'):
     """
         This function generates correlation plot given correlation matrix (n, n).
         ------------------------
@@ -38,8 +40,8 @@ def CPlot(corr_mat, axis_labs, cmap = "PuBu", pad = 0.05, rad = 270):
     plt.yticks(ytick_pos[0:n], axis_labs)       
     
     #set axis labels
-    plt.xlabel("Residue index")
-    plt.ylabel("Residue index")
+    plt.xlabel(xlab)
+    plt.ylabel(ylab)
     
     #set axis range
     plt.xlim((0, n))
@@ -57,6 +59,8 @@ def init_plotting():
     plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['axes.labelsize'] = 1.5*plt.rcParams['font.size']
     plt.rcParams['axes.titlesize'] = 1.5*plt.rcParams['font.size']
+    plt.rcParams['axes.linewidth'] = 1.1
+    plt.rcParams['axes.edgecolor'] = 'k'
     plt.rcParams['legend.fontsize'] = plt.rcParams['font.size']
     plt.rcParams['xtick.labelsize'] = plt.rcParams['font.size']
     plt.rcParams['ytick.labelsize'] = plt.rcParams['font.size']
@@ -70,7 +74,6 @@ def init_plotting():
     plt.rcParams['ytick.minor.width'] = 1
     plt.rcParams['legend.frameon'] = False
     plt.rcParams['legend.loc'] = 'upper left'
-    plt.rcParams['axes.linewidth'] = 1.1
     plt.rcParams['xtick.top'] = False
     plt.rcParams['ytick.right'] = False
     plt.rcParams['xtick.direction'] ='out'
